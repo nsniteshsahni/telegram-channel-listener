@@ -6,7 +6,7 @@ A lightweight python client of telegram for listening to public channels for ama
 python bot.py --api_id=<api_id> --api_hash=<api_hash> --source_username=<source_username> --target_username=<target_username>
 ```
 
-API Id and API hash can be obtained on https://my.telgram.org
+API Id and API hash can be obtained on https://my.telegram.org
 <br>
 
 # Dependencies:
