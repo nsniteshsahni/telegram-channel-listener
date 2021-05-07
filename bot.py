@@ -29,7 +29,7 @@ def startListener(opts):
         print("Received event with message:\n" + messageFromEvent)
         filteredMessage = re.findall(
             shortURLRegex, messageFromEvent, flags=re.IGNORECASE)
-        if (len(filteredMessage) != 0) or ('Vaccine' in messageFromEvent):
+        if len(filteredMessage) != 0:
             await client.send_message(target_username, messageFromEvent)
 
     with client:
