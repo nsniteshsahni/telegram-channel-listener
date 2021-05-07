@@ -10,6 +10,7 @@ API Id and API hash can be obtained on https://my.telegram.org
 <br>
 
 # Dependencies:
+
 ```
 pip install telethon
 ```

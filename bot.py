@@ -18,7 +18,7 @@ def startListener(opts):
 
     shortURLRegex = r"https?:\/\/(([^\s]*)\.)?amzn\.to\/([0-9A-Za-z]+)"
 
-    user_input_channel = 'https://t.me/' + source_username
+    user_input_channel = source_username
 
     client = TelegramClient('session_name', api_id, api_hash)
     client.start()
@@ -29,7 +29,7 @@ def startListener(opts):
         print("Received event with message:\n" + messageFromEvent)
         filteredMessage = re.findall(
             shortURLRegex, messageFromEvent, flags=re.IGNORECASE)
-        if len(filteredMessage) != 0:
+        if (len(filteredMessage) != 0) or ('Vaccine' in messageFromEvent):
             await client.send_message(target_username, messageFromEvent)
 
     with client:
@@ -43,7 +43,7 @@ try:
     opts, args = getopt.getopt(
         argv, 'a:b:c:d:', ['api_id=', 'api_hash=', 'source_username=', 'target_username='])
     # Check if the options' length is 4 (can be enhanced)
-    if len(opts) == 0 and len(opts) > 4:
+    if len(opts) == 0 or len(opts) > 4:
         print(usage)
     else:
         # Start the listener
