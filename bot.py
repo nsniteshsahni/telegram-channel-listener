@@ -18,7 +18,7 @@ def startListener(opts):
 
     shortURLRegex = r"https?:\/\/(([^\s]*)\.)?amzn\.to\/([0-9A-Za-z]+)"
 
-    user_input_channel = source_username
+    user_input_channel = 'https://t.me/' + source_username
 
     client = TelegramClient('session_name', api_id, api_hash)
     client.start()
