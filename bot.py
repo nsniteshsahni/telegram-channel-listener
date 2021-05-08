@@ -31,7 +31,7 @@ def startListener(opts):
         filteredMessage = re.findall(
             shortURLRegex, messageFromEvent, flags=re.IGNORECASE)
         if len(filteredMessage) != 0:
-            response = requests.get('http://telegram-bot.amzn.herokuapp.com')
+            response = requests.get('http://telegram-bot-amzn.herokuapp.com')
             print('Made a GET requrest to bot, got {status}'.format(
                 status=str(response.status_code)))
             await client.send_message(target_username, messageFromEvent)
