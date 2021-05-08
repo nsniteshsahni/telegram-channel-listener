@@ -1,6 +1,7 @@
 import getopt
 import sys
 import re
+import requests
 from telethon.errors import SessionPasswordNeededError
 from telethon import TelegramClient, events, sync
 from telethon.tl.functions.messages import (GetHistoryRequest)
@@ -30,6 +31,9 @@ def startListener(opts):
         filteredMessage = re.findall(
             shortURLRegex, messageFromEvent, flags=re.IGNORECASE)
         if len(filteredMessage) != 0:
+            response = requests.get('http://telegram-bot.amzn.herokuapp.com')
+            print('Made a GET requrest to bot, got {status}'.format(
+                status=str(response.status_code)))
             await client.send_message(target_username, messageFromEvent)
 
     with client:
